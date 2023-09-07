@@ -1,19 +1,18 @@
-const express = require('express')
-const { addBookHandler } = require('./handler')
-const router = express.Router()
+const express = require("express");
+const {
+	addBookHandler,
+	getAllBooksHandler,
+	getBookByIdHandler,
+	editBookByIdHandler,
+	deleteBookByIdHandler,
+} = require("./handler");
 
-router.post('/',addBookHandler)
-router.get('/',()=>{
-  console.log('get all')
-})
-router.get('/:bookId',()=>{
-  console.log('get by id')
-})
-router.put('/:bookId',()=>{
-  console.log('update')
-})
-router.delete('/:bookId',()=>{
-  console.log('delete')
-})
+const router = express.Router();
 
-module.exports = router
+router.post("/", addBookHandler);
+router.get("/", getAllBooksHandler);
+router.get("/:bookId", getBookByIdHandler);
+router.put("/:bookId", editBookByIdHandler);
+router.delete("/:bookId", deleteBookByIdHandler);
+
+module.exports = router;
